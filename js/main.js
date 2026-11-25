@@ -14,7 +14,7 @@
   $$('#menu a').forEach(function (a) { a.addEventListener('click', function () { menu.hidden = true; menuBt.textContent = 'Menu'; menuBt.setAttribute('aria-expanded', false); navSolida(); }); });
 
   /* hero: cada peça entra em passadas de sombreado dentro da cantaria */
-  var pecas = $$('#pecas img'), leg = $('#leg'), atual = 0;
+  var pecas = $$('#pecas img'), atual = 0;
   var calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
   function entra(i) {
     var el = pecas[i];
@@ -29,8 +29,6 @@
     setInterval(function () {
       atual = (atual + 1) % pecas.length;
       entra(atual);
-      leg.classList.add('troca');
-      setTimeout(function () { leg.textContent = pecas[atual].dataset.leg; leg.classList.remove('troca'); }, 450);
     }, 5000);
   }
 
